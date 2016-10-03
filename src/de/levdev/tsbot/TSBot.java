@@ -1,4 +1,4 @@
-package de.levdev.tsbot;
+﻿package de.levdev.tsbot;
 
 import com.github.theholywaffle.teamspeak3.TS3Api;
 import com.github.theholywaffle.teamspeak3.TS3Config;
@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TSBot {
 
-    private static final String PREFIX = "[[color=purple]Realix[color=black]MC] ";
+    private static final String PREFIX = "[[color=black]MidnightGames[color=black]Bot] ";
     private static final String KICK_MESSAGE_NAME = "Dieser Name ist nicht erlaubt!";
 
     private static ArrayList<String> forbiddenWords = new ArrayList<>();
@@ -27,10 +27,8 @@ public class TSBot {
     private static ArrayList<String> support_channels = new ArrayList<>();
 
     private static void initRanks(){
-        Team.getAdministrators().add("levdev | dätläv");
-        Team.getAdministrators().add("mitsch1r");
-        Team.getSupporters().add("reloax");
-        Team.getAdministrators().add("therealfazer");
+        Team.getAdministrators().add("nekxiz");
+        Team.getAdministrators().add("luke67893");
 
         /* Add more team-members */
     }
@@ -77,7 +75,7 @@ public class TSBot {
 
             System.out.println("The teamspeak-bot is starting...");
             final TS3Config config = new TS3Config();
-            config.setHost("51.255.219.9"); // Your ip (no domain! IPv4)
+            config.setHost("178.238.237.170"); // Your ip (no domain! IPv4)
             config.setQueryPort(10011); // 10011 is the standard port
             System.out.println("TS3-Config successfully loaded!");
 
@@ -86,7 +84,7 @@ public class TSBot {
             System.out.println("Query successfully loaded!");
 
             final TS3Api api = query.getApi();
-            api.login("realisticbot", "YvmNRMrF"); // Query login-name (most of the time 'serveradmin'), password
+            api.login("bot", ""); // Query login-name (most of the time 'serveradmin'), password
             api.selectVirtualServerByPort(9987);
             api.setNickname("RealisticBot");
             api.sendServerMessage(PREFIX + "Der RealisticBot wurde gestartet!");
@@ -96,7 +94,7 @@ public class TSBot {
         initChannels();
         initForbiddenWords();
 
-        api.getClients().forEach(client -> api.sendPrivateMessage(client.getId(), PREFIX + "Der RealisticBot wurde gestartet!"));
+        api.getClients().forEach(client -> api.sendPrivateMessage(client.getId(), PREFIX + "Der Bot wurde gestartet!"));
 
         api.addTS3Listeners(new TS3Listener() {
             @Override
@@ -114,7 +112,7 @@ public class TSBot {
                             api.sendPrivateMessage(textMessageEvent.getInvokerId(), "Hallo " + textMessageEvent.getInvokerName() + "!");
                             break;
                         case "ich habe eine frage":
-                            api.sendPrivateMessage(textMessageEvent.getInvokerId(), "Falls du Fragen hast, schreibe den DraxentoBot mit 'support' oder 'hilfe' an!");
+                            api.sendPrivateMessage(textMessageEvent.getInvokerId(), "Falls du Fragen hast, schreibe den MidnightGamesBot mit 'support' oder 'hilfe' an!");
                             break;
                         case "support":
                             api.sendPrivateMessage(textMessageEvent.getInvokerId(), "Du wirst sobald ein Mitarbeiter vom Support anwesend ist, mit ihm verbunden!");
@@ -164,7 +162,7 @@ public class TSBot {
                             break;
 
                         case "!info":
-                            api.sendPrivateMessage(textMessageEvent.getInvokerId(), "Der RealisticBot wurde von LevDev im Auftrag von RealixMC entwickelt.");
+                            api.sendPrivateMessage(textMessageEvent.getInvokerId(), "Der TeamspeakBot wurde von LevDev entwickelt.");
                             break;
 
                     }
@@ -220,7 +218,7 @@ public class TSBot {
                 api.sendPrivateMessage(clientJoinEvent.getClientId(), "Herzlich Willkommen " + clientJoinEvent.getClientNickname()
                         + "!");
                 api.sendPrivateMessage(clientJoinEvent.getClientId(), "Wir wünschen Dir einen unterhaltsamen Aufenthalt auf unserem Teamspeak!");
-                api.sendPrivateMessage(clientJoinEvent.getClientId(), "Falls du Fragen hast, schreibe den RealisticBot mit 'support' oder 'hilfe' an!");
+                api.sendPrivateMessage(clientJoinEvent.getClientId(), "Falls du Fragen hast, schreibe den Bot mit 'support' oder 'hilfe' an!");
 
 
                 if(Team.getAdministrators().contains(clientJoinEvent.getClientNickname().toLowerCase())) {
@@ -323,8 +321,8 @@ public class TSBot {
 
         ScheduledExecutorService executorService3 = Executors.newSingleThreadScheduledExecutor();
         executorService3.scheduleAtFixedRate(() -> {
-            api.sendServerMessage(PREFIX + "RealixMC hat auch einen Minecraft-Server!");
-            api.sendServerMessage(PREFIX + "Wir würden uns sehr freuen, wenn du uns besuchen würdest. Die IP wird lautet: [color=purple]RealixMC.de");
+            api.sendServerMessage(PREFIX + "MidnightGames hat auch einen Minecraft-Server!");
+            api.sendServerMessage(PREFIX + "Wir würden uns sehr freuen, wenn du uns besuchen würdest. Die IP wird lauten: [color=purple]play.midnightgames.net");
         }, 0L, 1L, TimeUnit.HOURS);
 
         ScheduledExecutorService executorService4 = Executors.newSingleThreadScheduledExecutor();
