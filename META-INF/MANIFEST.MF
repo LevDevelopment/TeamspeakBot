@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: de.levdev.tsbot
+Main-Class: de.levdev.tsbot.TSBot
+
