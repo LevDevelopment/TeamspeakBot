@@ -40,35 +40,6 @@ public class TSBot {
 
     private static void initForbiddenWords(){
         forbiddenWords.add("noob");
-        forbiddenWords.add("huso");
-        forbiddenWords.add("huan");
-        forbiddenWords.add("hurensohn");
-        forbiddenWords.add("arschloch");
-        forbiddenWords.add("hure");
-        forbiddenWords.add("nutte");
-        forbiddenWords.add("fotze");
-        forbiddenWords.add("lappen");
-        forbiddenWords.add("ficker");
-        forbiddenWords.add("hitler");
-        forbiddenWords.add("adolf");
-        forbiddenWords.add("bastard");
-        forbiddenWords.add("bastart");
-        forbiddenWords.add("spast");
-        forbiddenWords.add("spastard");
-        forbiddenWords.add("vergasen");
-        forbiddenWords.add("wixxen");
-        forbiddenWords.add("ficken");
-        forbiddenWords.add("nuttensohn");
-        forbiddenWords.add("arsch");
-        forbiddenWords.add(".com");
-        forbiddenWords.add(".net");
-        forbiddenWords.add(".org");
-        forbiddenWords.add(".info");
-        forbiddenWords.add(".ovh");
-        forbiddenWords.add(".it");
-        forbiddenWords.add(".fr");
-        forbiddenWords.add(".me");
-        forbiddenWords.add(".tk");
     }
 
     public static void main(String[] args) {
